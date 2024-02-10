@@ -618,3 +618,43 @@ input.input100 {
   background: #333333;
   color: #fff;
 }
+
+
+
+
+
+
+
+
+/* -------------------HOMEPAGE-------------------- */
+#mainNav {
+  margin-top: 5vh;
+}
+
+.btn {
+  border-radius: 2vh;
+}
+
+.bg-primary-gradient {
+}
+
+.hero-container {
+  background-color: #d5e6f3;
+}
+
+.input-hero {
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+}
+
+.input-hero:focus {
+  border-color: rgba(82, 168, 236, 0.8);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+  outline: 0 none;
+}
+
+.form-label {
+  font-weight: 800;
+}
