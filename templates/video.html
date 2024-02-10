@@ -1,0 +1,39 @@
+<html>
+<body>
+<!-- OpenTok.js library -->
+
+
+<h2>Video Call</h2>
+<article>
+   <div id="publisher"></div>
+</article>
+<article id="subscribers"></article>
+
+<p>{{ app_no }}</p><br>
+<p>{{ session }}</p><br>
+<p>{{ token }}</p><br>
+<script src="https://unpkg.com/@vonage/client-sdk-video@latest/dist/js/opentok.js"></script>
+<script>
+
+// credentials
+var appId = "{{ app_no }}"
+var sessionId = "{{ session }}"
+var token = "{{ token }}"
+
+// connect to session
+var session = OT.initSession(appId, sessionId);
+// create publisher
+var publisher = OT.initPublisher();
+session.connect(token, function(err) {
+// publish publisher
+session.publish(publisher);
+});
+
+// create subscriber
+
+session.on('streamCreated', function (event) {
+  session.subscribe(event.stream);
+});
+</script>
+</body>
+</html>

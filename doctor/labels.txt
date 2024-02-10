@@ -1,0 +1,4 @@
+0 normal-pylorus
+1 normal-z-line
+2 polyps
+3 ulcerative-colitis
