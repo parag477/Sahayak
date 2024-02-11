@@ -1,0 +1,3 @@
+0 benign
+1 meliginant
+2 normal

@@ -2,7 +2,9 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.sites.shortcuts import get_current_site
 import openai
-
+import base64
+from pydub import AudioSegment
+import io
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 import uuid
@@ -238,7 +240,7 @@ def create_meeting(request):
     data2 = Sessiondata(username=user, join_link=guest_url)
     data2.save()
 
-    return redirect("/")
+    return redirect(f"{guest_url}")
 
 
 def get_last_image(directory):
@@ -274,6 +276,60 @@ def safe(request):
 
 def unsafe(request):
     return render(request, "unsafe.html")
+
+
+
+def breast_cancer(request):
+    directory = "media/images"
+    last_image = get_last_image(directory)
+    print(last_image[13:])
+    # Disable scientific notation for clarity
+    np.set_printoptions(suppress=True)
+
+    # Load the model
+    model = load_model("doctor/keras_Model-4.h5", compile=False)
+
+    # Load the labels
+    class_names = open("doctor/labels-breast.txt", "r").readlines()
+
+    # Create the array of the right shape to feed into the keras model
+    # The 'length' or number of images you can put into the array is
+    # determined by the first position in the shape tuple, in this case 1
+    data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+
+    # Replace this with the path to your image
+    image = Image.open(f"{last_image}").convert("RGB")
+
+    # resizing the image to be at least 224x224 and then cropping from the center
+    size = (224, 224)
+    image = ImageOps.fit(image, size, Image.Resampling.LANCZOS)
+
+    # turn the image into a numpy array
+    image_array = np.asarray(image)
+
+    # Normalize the image
+    normalized_image_array = (image_array.astype(np.float32) / 127.5) - 1
+
+    # Load the image into the array
+    data[0] = normalized_image_array
+
+    # Predicts the model
+    prediction = model.predict(data)
+    index = np.argmax(prediction)
+    class_name = class_names[index]
+    confidence_score = prediction[0][index]
+
+    # Print prediction and confidence score
+    print("Class:", class_name[2:], end="")
+    print("Confidence Score:", confidence_score)
+
+    messages.success(request, f"{class_name[2:]}:- Accuracy:-{confidence_score * 100}")
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+def brain(request):
+    directory = "media/images"
+    last_image = get_last_image(directory)
+    print(last_image[13:])
 
 
 def l4(request):
@@ -326,7 +382,7 @@ def upload_image(request):
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('upload_success')
+            return redirect("/doctor/")
     else:
         form = ImageForm()
     return render(request, 'upload.html', {'form': form})
@@ -351,5 +407,22 @@ Please write in English language.""",
     answer = response.choices[0].text.strip()
     print("Answer:", answer)
 
+@csrf_exempt
+def upload_voice(request):
+    if request.method == 'POST' and request.FILES.get('voice'):
+        voice_file = request.FILES['voice']
 
 
+
+        # You can do further processing with the uploaded MP3 file here
+
+        # For example, you can save the file to a specific location
+        # with a unique filename
+        with open('recording.mp3', 'wb') as destination:
+            for chunk in voice_file.chunks():
+                destination.write(chunk)
+
+        # Once processing is done, you can send back a response
+        return JsonResponse({'status': 'success', 'message': 'File uploaded successfully'})
+
+    return JsonResponse({'status': 'error', 'message': 'No file uploaded'}, status=400)

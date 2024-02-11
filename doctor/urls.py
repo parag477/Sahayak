@@ -19,8 +19,10 @@ urlpatterns = [
     path('create_meeting/', views.create_meeting, name='create_meeting'),
     path('upload_audio/', UploadAudio.as_view(), name='upload_audio'),
 path('upload/', views.upload_image, name='upload_image'),
+path('upload-voice/', views.upload_voice, name='upload_voice'),
     path('upload/success/', views.upload_success, name='upload_success'),
     path('l4/', views.l4, name='l4'),
+    path('breast_cancer/', views.breast_cancer, name='breast_cancer'),
 
 
 
