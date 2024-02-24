@@ -1,9 +1,9 @@
 # Sahayak
-Expert Healthcare Assisstance with Online Ease
+Expert Healthcare Assisstance with Online Ease 
 
 ## Introduction
 
-This project aims to provide assisstance in the healthcare centre in two ways. Firstly, providing accessible healthcare services to rural populations by leveraging artificial intelligence and telemedicine technologies. Secondly, by helping the doctor diagnose the test results for major diseases like (brain tumour, breasts cancer, etc) with most accuracy. The web application is designed to function as a virtual medical consultation platform, allowing users to seek medical advice and diagnosis conveniently from nodal centers located in each village, and simultaneously being a platform for doctors to seek assisatnce in generating accurate test result analysis.
+This project aims to provide assistance in the healthcare centre in two ways. Firstly, providing accessible healthcare services to rural populations by leveraging artificial intelligence and telemedicine technologies. Secondly, by helping the doctor diagnose the test results for major diseases like (brain tumour, breasts cancer, etc) with most accuracy. The web application is designed to function as a virtual medical consultation platform, allowing users to seek medical advice and diagnosis conveniently from nodal centers located in each village, and simultaneously being a platform for doctors to seek assisatnce in generating accurate test result analysis.
 
 ## Features
 
