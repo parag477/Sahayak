@@ -190,34 +190,7 @@ def login1(request):
         return redirect("/")
 
 
-private_key = """-----BEGIN PRIVATE KEY-----
-MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQClr8AyWoN60vGr
-izsUe2FZCYVQ7EAggTQ0dFcbq0ah5JIaTawoMrtbP9AOrYhRWrvmE6YOR7CGX6PO
-FF8A9NUyS40lWLGSQGpxnlfQH777NSyl32/GwkI8MzMXi9QWNOm3OpoUwcnVBbv5
-qSEoGWCanTrnHerHkhQRgA31mqYX+kEklgXEBroGozzYQ7eDeE2uAcyIW/s9MPr8
-P2UMBSMCkWdZ/aMHlXEJo/Mit3YEIkvAXLkzamIIBAoeQj92qWJe5J2aQNQnG49A
-Ln0/h3uLQ+nRf1n7obwp+zXQZy8s0UUqO//alvFZHxEzmT4GiECoT3t8H+lI3w8T
-enjiuVobAgMBAAECggEAFCb2w7PHpyeYwQqBEpeDz85nz9+/Av/EEkHjmxgaJ18Y
-4tMiBoz5GyWn+t5iJLGvsKcg0j7ST926cOUrEv+JyNbF9vi9NwfXtTRoWNuWS+am
-pLwy/mP/+2N81OHV13zzFQKvMql0EOa5e38glch/EVSLZrNNrEgZDHHcq3ahD2xX
-Q0JsCt+TyOWTkNdCZjBdNXm+Hcxh5xnnxCzvTAZnKQX/k84M139NiHe6sv3Idmg0
-cuUZdbY95BDd7mqPAOlAxJeKrqym9ptaqIUVN297M9flzsWV9EECCrxEWJDgZ7bM
-xY3h4OJ1EqW8Ob1xtgj+PND2Wmd6UtUuhPu/SJ4jJQKBgQDmUDzkoarAmde8Jtt0
-HIR+eB55Vwh0yiArlowAcKeS9GJ4lW7c+NpS6Cqo6+uZNeZxL79ChX/a9ykQe5tS
-OVNHKYxcRUXvXz8DNzfrfqjXmpZTBrVmWCsQ8Hi+tujspWwfOv/JJu7905e1sGPH
-s2SR8McyGHdl96Uu9ILt+ONczQKBgQC4KlOo+W9CleLaIJee90AtuLqnHB0lkqWf
-a0mslx1LC98KoRIxJADCfZAIf4Xk/S/ftf8L7sMWDoNqv6cktbbI9aY2dYz9OSJf
-y1SlFMVl+RxQXhi2tDwK8XQQZhZko2S5zNQ1f+QHzf+tiBcgBmnlEtd76WIJ0D0E
-UMJcb4EShwKBgQDDphvkeTWtwcLTsgqxG1yuduokV/v2ApLLlGtAIHMqUnKoTwFL
-tBb7YQCEWU3d7DzjoBUQtInFgDshJm/urIYDKNd0tuBPFZFY8PqPEhzqcwcKZuOI
-mpOTI0TfdlBuX6R2707FGU7iz3HMRZit18Yyd+EvvDsJoxNuzQXAlLLIbQKBgQCT
-w2pCjnflnetZBoOAyXMV/DzOrfD435PBuExxjQG03/6CQcAd63wskKBLIT5l/3s0
-7IqJoXWnsddhhApwmtfgn7BPy7tmxTu+Tp9IoMTNT7WXChicJzpxsU9lhPN8pdjA
-dwbhMg7c8DyvmByt1leKs7ZvNk8x/oGmf8GidtjB6wKBgFd4qNl6GuiyTtOVO7+E
-qaTXN2z/vkqy2s7KGIukGxPBW2xO2YAFGBlKthJ/lnOpZFko38i4UaOu9C7YTqZu
-CgGnZF7vobEU6PHfHwo+IVQvCjFEyUvkRWeB6liQAhFH43NZ1PaWA7kKyLiX2GYX
-wb2w/7lTm2FgUFGjZVpBbEZD
------END PRIVATE KEY-----"""
+private_key = """your-key"""
 
 @login_required()
 def create_meeting(request):
@@ -225,7 +198,7 @@ def create_meeting(request):
 
 
 
-    client = vonage.Client(application_id="c13ed9db-cffa-4076-88a4-85f1546d2873", private_key=private_key)
+    client = vonage.Client(application_id="your-id", private_key=private_key)
 
     session_info = client.video.create_session()
     session_id = session_info["session_id"]
@@ -391,7 +364,7 @@ def upload_success(request):
     return render(request, 'upload_success.html')
 
 def genrate_doc(request):
-    openai.api_key = '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'
+    openai.api_key = 'your-key'
     client = openai.OpenAI()
     response = openai.Completion.create(
         engine="text-davinci-002",
