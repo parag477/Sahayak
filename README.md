@@ -3,7 +3,12 @@ Expert Healthcare Assisstance with Online Ease
 
 ## Introduction
 
-This project aims to provide assistance in the healthcare centre in two ways. Firstly, providing accessible healthcare services to rural populations by leveraging artificial intelligence and telemedicine technologies. Secondly, by helping the doctor diagnose the test results for major diseases like (brain tumour, breasts cancer, etc) with most accuracy. The web application is designed to function as a virtual medical consultation platform, allowing users to seek medical advice and diagnosis conveniently from nodal centers located in each village, and simultaneously being a platform for doctors to seek assisatnce in generating accurate test result analysis.
+This project aims to provide assistance in the healthcare centre in two ways. Firstly, providing accessible healthcare services to rural populations by leveraging artificial intelligence and telemedicine technologies. Moreover, by helping the doctor diagnose the test results for major diseases like (brain tumour, breasts cancer, etc) with most accuracy. 
+
+The web application is designed to function as a virtual medical consultation platform, allowing users to seek medical advice and diagnosis conveniently from nodal centers located in each village, and simultaneously being a platform for doctors to seek assisatnce in generating accurate test result analysis. [Watch a demonstration](https://youtu.be/iflBFTqXyyE?si=pTeHY7yhwi6qwh2L)
+
+
+![sahayak](https://github.com/user-attachments/assets/b3add27a-a732-4ecc-a708-53b4693471c2)
 
 ## Features
 
@@ -43,6 +48,8 @@ This project aims to provide assistance in the healthcare centre in two ways. Fi
 
 15. **Feedback Mechanism**: Incorporates a feedback mechanism to gather input from healthcare professionals and patients for further improvement of the web app's functionality and accuracy.
 
+
+![Section 4](https://github.com/user-attachments/assets/b9b63cad-8195-464f-a3ac-22c60bba73a4)
 
 ## Technologies Used
 
